@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeroImageM/>
+    <FirstCardM/>
+    <SecondCardM/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeroImageM from './components/HeroImageM.vue';
+import FirstCardM from './components/FirstCardM.vue'
+import SecondCardM from './components/SecondCardM.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeroImageM,
+    FirstCardM,
+    SecondCardM,
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss'>
+  @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+  body, html{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  #app{
+    max-width: 375px;
+    margin: 0 auto;
+    font-family: Commissioner, sans-serif;
+  }
 </style>
