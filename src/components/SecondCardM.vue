@@ -1,17 +1,17 @@
 <template>
   <div class="card-body">
     <div class="values">
-      <p class="value">$89,914</p>
+      <p class="value">{{money}}</p>
       <p class="value-info">of $100,00 backed</p>
       <hr>
     </div>
     <div class="values">
-      <p class="value">5,007</p>
+      <p class="value">{{totalBAckers}}</p>
       <p class="value-info">total backers</p>
       <hr>
     </div>
     <div class="values">
-      <p class="value">56</p>
+      <p class="value">{{daysLeft}}</p>
       <p class="value-info">days left</p>
     </div>
     <div class="progress">
@@ -22,15 +22,26 @@
 
 <script>
 export default {
-  name: 'SecondCardM'
+  name: 'SecondCardM',
+  data: function (){
+    return {
+      money: '$89,914',
+      totalBAckers: '5,007',
+      daysLeft: 56
+    }
+  },
 }
 </script>
 
 <style lang='scss' scoped>
+
+  $cayn-color: hsl(176, 50%, 47%);
+
   .card-body{
     width: 86vw;
+    max-width: 340px;
     margin: 0 auto;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 8px;
     transform: translateY(-20px);
   }
@@ -57,16 +68,18 @@ export default {
   }
   .progress-bar{
     width: 73vw;
+    max-width: 300px;
     height: 13px;
     margin: 40px 0;
-    background-color: green;
+    background-color: $cayn-color;
     border-radius: 10px;
   }
   .progress-bar::-webkit-progress-bar{
     border-radius: 10px;
+    background-color: #fff;
   }
   .progress-bar::-webkit-progress-value{
-    background-color: green;
+    background-color: $cayn-color;
     border-radius: 10px;
   }
   hr{

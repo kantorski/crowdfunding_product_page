@@ -21,10 +21,14 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
+  $cayn-color: hsl(176, 50%, 47%);
+
   .card-body{
     width: 86vw;
+    max-width: 340px;
     margin: auto;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 8px;
     transform: translateY(-50px);
   }
@@ -61,7 +65,7 @@ export default {
     width: 75%;
     border-radius: 50px;
     border-style: none;
-    background-color: green;
+    background-color: $cayn-color;
     font-size: 15px;
     color: white;
     font-weight: bold;
