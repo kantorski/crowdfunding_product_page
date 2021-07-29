@@ -34,6 +34,7 @@ $cayn-color: hsl(176, 50%, 47%);
 
 .product-card {
   width: 75vw;
+  max-width: 282px;
   margin: 15px auto;
   font-size: 14px;
   line-height: 0.575cm;

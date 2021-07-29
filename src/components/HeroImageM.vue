@@ -1,46 +1,95 @@
 <template>
   <div class="hero-image">
+    <transition name="fade" appear>
+      <div
+        class="modal-overlay"
+        v-if="showModal"
+        @click="showModal = false"
+      ></div>
+    </transition>
     <div class="navbar">
       <p class="title">crowdfund</p>
-      <img class="hamburger-menu" src="../assets/icon-hamburger.svg">
+      <img class="hamburger-menu" src="../assets/icon-hamburger.svg" @click="showModal = true" />
+      <img class="hamburger-menu" src="../assets/icon-close-menu.svg"  @click="showModal = false" />
+    </div>
+    <div class="menu" v-if="showModal" @click="showModal = false">
+      <p>About</p>
+      <hr />
+      <p>Discovery</p>
+      <hr />
+      <p>Get Started</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HeroImageM',
-}
+  name: "HeroImageM",
+  data: function () {
+    return {
+      showModal: false,
+    };
+  },
+};
 </script>
 
 <style lang='scss' scoped>
-  .hero-image{
-    width: 100%;
-    height: 270px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../assets/image-hero-mobile.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-  .navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px 20px;
-    color: white;
+.hero-image {
+  width: 100%;
+  height: 270px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url("../assets/image-hero-mobile.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 20px;
+  color: white;
+  font-weight: bold;
+}
+.hamburger-menu {
+  padding-top: 6px;
+  color: white;
+  height: 15px;
+  width: 16px;
+  text-align: center;
+}
+.title {
+  margin: 0;
+  font-size: 24px;
+  text-align: justify;
+}
+.menu {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 80vw;
+  background-color: #fff;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  p {
+    padding: 7px 20px;
+    font-size: 16px;
     font-weight: bold;
   }
-  .hamburger-menu{
-    padding-top: 6px;
-    color: white;
-    height: 15px;
-    width: 16px;
-    text-align: center;
+  hr {
+    height: 0.1px;
+    background-color: whitesmoke;
   }
-  .title{
-    margin: 0;
-    font-size: 24px;
-    text-align: justify;
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 105;
+    background-color: rgba(0, 0, 0, 0.5);
   }
+}
 </style>
