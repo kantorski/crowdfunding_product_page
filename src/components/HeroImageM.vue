@@ -1,24 +1,30 @@
 <template>
-  <div class="hero-image">
-    <transition name="fade" appear>
-      <div
-        class="modal-overlay"
-        v-if="showModal"
-        @click="showModal = false"
-      ></div>
-    </transition>
-    <div class="navbar">
-      <p class="title">crowdfund</p>
-      <img class="hamburger-menu" src="../assets/icon-hamburger.svg" @click="showModal = true" />
-      <img class="hamburger-menu" src="../assets/icon-close-menu.svg"  @click="showModal = false" />
+  <div class="wrapper">
+    <div class="hero-image">
+      <div class="navbar">
+        <p class="title">crowdfund</p>
+        <img
+          class="hamburger-menu"
+          src="../assets/icon-hamburger.svg"
+          @click="showModal = true"
+          v-if="!showModal"
+        />
+        <img
+          class="hamburger-menu"
+          src="../assets/icon-close-menu.svg"
+          @click="showModal = false"
+          v-if="showModal"
+        />
+      </div>
+      <div class="menu" v-if="showModal">
+        <p>About</p>
+        <hr />
+        <p>Discovery</p>
+        <hr />
+        <p>Get Started</p>
+      </div>
     </div>
-    <div class="menu" v-if="showModal" @click="showModal = false">
-      <p>About</p>
-      <hr />
-      <p>Discovery</p>
-      <hr />
-      <p>Get Started</p>
-    </div>
+    <div class="modal-overlay" v-if="showModal"></div>
   </div>
 </template>
 
@@ -58,6 +64,7 @@ export default {
   height: 15px;
   width: 16px;
   text-align: center;
+  z-index: 11;
 }
 .title {
   margin: 0;
@@ -82,14 +89,14 @@ export default {
     height: 0.1px;
     background-color: whitesmoke;
   }
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 105;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>

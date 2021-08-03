@@ -15,10 +15,10 @@
       <button id="modal-open" @click="showModal = true">Select Reward</button>
     </div>
     <transition name="fade" appear>
-      <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
+      <div class="modal-overlay" v-if="showModal"></div>
     </transition>
     <transition name="slide" appear>
-      <div class="modal" v-if="showModal" @click="showModal = false">
+      <div class="modal" v-if="showModal">
         <img src="../assets/icon-check.svg" alt="" />
         <p class="modal-title">Thanks for your support!</p>
         <p class="modal-description">
@@ -26,7 +26,7 @@
           Monitor Riser worldwide. You will get an emial once your campaign is
           completed
         </p>
-        <button class="modal-close">Got it!</button>
+        <button class="modal-close" @click="showModal = false">Got it!</button>
       </div>
     </transition>
   </div>
